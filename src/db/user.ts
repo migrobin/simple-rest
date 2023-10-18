@@ -16,6 +16,7 @@ export const getUserBySessionToken = (sessionToken: string) =>
     User.findOne({ "authentication.sessionToken": sessionToken });
 export const getUserById = (id: string) => User.findById(id);
 export const createUser = (user: any) => new User(user).save();
-export const deleteUserById = (id: string) => User.findByIdAndDelete(_id: id);
+export const deleteUserById = (id: string) =>
+    User.findByIdAndDelete({ _id: id });
 export const updateUserById = (id: string, user: any) =>
     User.findByIdAndUpdate(id, user, { new: true });
